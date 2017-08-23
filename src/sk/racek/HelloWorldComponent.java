@@ -22,8 +22,8 @@ public class HelloWorldComponent extends JComponent {
 		FontMetrics fm = g2d.getFontMetrics();
 		Rectangle2D r = fm.getStringBounds(msg, g2d);
 
-		int centeredCoordinationsForString[] = centerStringXY(g2d, fm, r);
-		g.drawString(msg, centeredCoordinationsForString[0], centeredCoordinationsForString[1]);
+		int centeredCoordinatesForString[] = centerStringXY(g2d, fm, r);
+		g.drawString(msg, centeredCoordinatesForString[0], centeredCoordinatesForString[1]);
 	}
 
 	@Override
