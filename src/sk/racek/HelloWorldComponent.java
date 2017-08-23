@@ -15,17 +15,15 @@ public class HelloWorldComponent extends JComponent {
 
 	private static final int	DEFAULT_WIDTH	 = 300;
 	private static final int	DEFAULT_HEIGHT	 = 200;
-    
 
 	@Override
 	public void paintComponent(Graphics g) {
 		Graphics2D g2d = (Graphics2D) g;
 		FontMetrics fm = g2d.getFontMetrics();
-	    Rectangle2D r = fm.getStringBounds(msg, g2d);
-		int centeredString[] = centerStringXY(g2d, fm, r);
-	    
-		g.drawString(msg, centeredString[0], centeredString[1]);
-		
+		Rectangle2D r = fm.getStringBounds(msg, g2d);
+
+		int centeredCoordinationsForString[] = centerStringXY(g2d, fm, r);
+		g.drawString(msg, centeredCoordinationsForString[0], centeredCoordinationsForString[1]);
 	}
 
 	@Override
@@ -33,9 +31,9 @@ public class HelloWorldComponent extends JComponent {
 		return new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 	}
 
-	public int[] centerStringXY(Graphics2D g, FontMetrics fm, Rectangle2D r){
-	        int x = (this.getWidth() - (int) r.getWidth()) / 2;
-	        int y = (this.getHeight() - (int) r.getHeight()) / 2 + fm.getAscent();
-	        return new int[]{x, y};
+	public int[] centerStringXY(Graphics2D g, FontMetrics fm, Rectangle2D r) {
+		int x = (this.getWidth() - (int) r.getWidth()) / 2;
+		int y = (this.getHeight() - (int) r.getHeight()) / 2 + fm.getAscent();
+		return new int[] { x, y };
 	}
 }
